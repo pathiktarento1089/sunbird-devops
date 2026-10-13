@@ -1342,7 +1342,7 @@
   },
   "timepicker": {},
   "timezone": "browser",
-  "title": "ClickHouse Production Monitoring (Grafana 7 Compatible)",
+  "title": "ClickHouse Production Monitoring",
   "uid": "P0FgpjrDz",
   "version": 1
 }
