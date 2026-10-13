@@ -397,6 +397,8 @@ dashboards1:
        file: dashboards/ssl-cert-monitor.json
      dsr-metrics-monitor:
        file: dashboards/dsr_metrics_dashboard.json
+     clickhouse-production-monitoring:
+       file: dashboards/clickhouse-production-monitoring.json
 
 dashboards2:
    kong:
