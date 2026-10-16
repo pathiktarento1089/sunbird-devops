@@ -27562,6 +27562,7 @@ kong_apis:
       - "{{ statsd_pulgin }}"
       - name: acl
         config.whitelist:
+          - 'itsmAuroraWebhookAccess'
           - 'itsmAuroraAccess'
           - 'itsmAccess'
       - name: rate-limiting
@@ -27604,8 +27605,8 @@ kong_apis:
       config.allowed_payload_size: "{{ small_request_size_limit }}"
 
   - name: getProgramBatchParticipants
-    uris: "{{ program_prefix }}/v1/batch/participants/list"
-    upstream_url: "{{ lms_service_url }}/program/v1/batch/participants/list"
+    uris: "{{ program_prefix }}/v2/batch/participants/list"
+    upstream_url: "{{ lms_service_url }}/program/v2/batch/participants/list"
     strip_uri: true
     plugins:
       - name: jwt
