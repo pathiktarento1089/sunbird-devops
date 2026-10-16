@@ -27657,11 +27657,9 @@ kong_apis:
       - name: request-size-limiting
         config.allowed_payload_size: "{{ medium_request_size_limit }}"
 
-
-
-  - name: ltiAdminConfig
-    uris: "{{ ciosIntegration_prefix }}/v1/lti/admin/platform-config"
-    upstream_url: "{{ cios_content_service_url }}/ciosIntegration/v1/lti/admin/platform-config"
+  - name: AiItsmAuroraDashboardOverview
+    uris: "{{ ai_itsm_aurora_service_prefix }}/v1/dashboard/overview"
+    upstream_url: "{{ ai_itsm_aurora_service_url }}/api/v1/dashboard/overview"
     strip_uri: true
     plugins:
       - name: jwt
@@ -27669,10 +27667,12 @@ kong_apis:
       - "{{ statsd_pulgin }}"
       - name: acl
         config.whitelist:
-          - 'contentAccess'
+          - 'itsmAuroraAccess'
+          - 'itsmAccess'
       - name: rate-limiting
         config.policy: local
         config.hour: "{{ medium_rate_limit_per_hour }}"
         config.limit_by: credential
       - name: request-size-limiting
-        config.allowed_payload_size: "{{ medium_request_size_limit }}"
+        config.allowed_payload_size: "{{ small_request_size_limit }}"
+
