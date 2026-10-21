@@ -10231,7 +10231,7 @@ proxyconfig: |-
       proxy_pass http://kong;
       client_max_body_size 1226M;
     }
-	
+
     location /protected/v8/resource/ {
       if ($request_method = OPTIONS ) {
               add_header Access-Control-Allow-Origin "*" ;
