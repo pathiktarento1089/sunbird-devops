@@ -2915,6 +2915,26 @@ kong_apis:
     - name: request-size-limiting
       config.allowed_payload_size: "{{ medium_request_size_limit }}"
 
+  # Public, no-auth route: proxies Moodle's (or any LTI Tool's) OIDC
+  # authorize redirect to cios-content-service's LTI Platform authorize
+  # endpoint via sunbird-cb-uiproxy, since the direct public path to
+  # cios-content-service is blocked by an edge security rule outside this
+  # repo. No jwt/acl, matching readForm above - Moodle is not an
+  # authenticated iGOT session.
+  - name: ltiOidcAuthorizeProxy
+    uris: "/public/v8/lti/oidc/authorize"
+    upstream_url: "{{ player_service_url }}/public/v8/lti/oidc/authorize"
+    strip_uri: true
+    plugins:
+    - name: cors
+    - "{{ statsd_pulgin }}"
+    - name: rate-limiting
+      config.policy: local
+      config.hour: "{{ medium_rate_limit_per_hour }}"
+      config.limit_by: ip
+    - name: request-size-limiting
+      config.allowed_payload_size: "{{ medium_request_size_limit }}"
+
   - name: publishContent
     uris: "{{ content_prefix }}/v1/publish"
     upstream_url: "{{ knowledge_mw_service_url }}/v1/content/publish"
