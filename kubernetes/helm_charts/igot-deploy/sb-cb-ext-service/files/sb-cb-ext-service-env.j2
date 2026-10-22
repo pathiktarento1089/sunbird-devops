@@ -358,7 +358,7 @@ redis.data.port={{ redis_port }}
 
 hierarchy.store.keyspace.name={{ env }}_hierarchy_store
 
-default.content.properties=name,identifier,competencies_v5,avgRating,primaryCategory,contentType,channel,organisation,createdFor,duration,creatorLogo,appIcon,posterImage,additionalTags,description,status,secureSettings,contextLockingType,languageMapV1,leafNodesCount,courseCategory,language,difficultyLevel,milestones_v1
+default.content.properties=name,identifier,competencies_v5,avgRating,primaryCategory,contentType,channel,organisation,createdFor,duration,creatorLogo,appIcon,posterImage,additionalTags,description,status,secureSettings,contextLockingType,languageMapV1,leafNodesCount,courseCategory,language,difficultyLevel,milestones_v1,selfEnrollment
 cb-plan.update.publish.authorized.roles=MDO_LEADER
 
 spv_admin_channel_name=Karmayogi Bharat
@@ -696,7 +696,7 @@ kafka.event.envelope.version=2
 kafka.topics.karma.points.unified.event={{env}}.karma.points.unified.v2.event
 
 program.coordinator.bulk.upload.max.rows=500
-kafka.topics.program.coordinator.bulk.upload=program.coordinator.bulk.upload.final
+kafka.topics.program.coordinator.bulk.upload={{env}}.program.coordinator.bulk.upload.final
 kafka.topics.program.coordinator.bulk.upload.group=programCoordinatorBulkUpload
 program.coordinator.bulk.upload.result.headers=Registered Name,Registered Email ID,Phone Number,Trainer Type,Status,Error Details
 
