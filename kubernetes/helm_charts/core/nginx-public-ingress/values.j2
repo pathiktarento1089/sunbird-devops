@@ -13342,8 +13342,9 @@ nginxconfig: |
           # Internal domains
           ~^https?://([a-zA-Z0-9-]+\.)*svc\.cluster\.local(:[0-9]+)?$  $http_origin;
           ~^https?://([a-zA-Z0-9-]+\.)*internal(:[0-9]+)?$             $http_origin;
-          # zohostatic
+          # zoho, zohostatic
           ~^https://([a-zA-Z0-9-]+\.)*zohostatic\.in$               $http_origin;
+          ~^https://([a-zA-Z0-9-]+\.)*zoho\.in$               $http_origin;
       }
 
       server_tokens off;
