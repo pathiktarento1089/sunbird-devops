@@ -11060,7 +11060,8 @@ proxyconfig: |-
     }
 
     client_max_body_size 1126M;
-  
+    }
+    
   server {
     if ($host = spv.{{ nginx_proxy_server_name }}) {
         return 301 https://$host$request_uri;
