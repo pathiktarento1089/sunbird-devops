@@ -132,7 +132,6 @@ cloud.storage.key={{ cloud_storage_key }}
 learning_service_base_url=http://{{ learningservice_ip }}:8080/learning-service
 system.content.update.url=/system/v3/content/update/
 
-kafka.topics.parent.rating.event={{ rating_event_topic }}
 redis.host.name={{ kp_redis_ip }}
 redis.port=6379
 #redis timeout value is in seconds
@@ -669,6 +668,19 @@ program.coordinator.default.limit=20
 
 program.coordinator.sortable.fields=roleId,createdBy,userId,createdOn,updatedOn
 
+certificate-generator-service-host=http://certificate-generator-service:9000
+certificate-generator-download-url=/v1/certs/legacy/generate/
+
+karma.coin.monthly.cap=300
+karma.coin.wallet.redis.ttl=3600
+karma.coin.wallet.authorized.roles=PUBLIC,VOLUNTEER
+karma.coin.wallet.redeem.topic={{ env }}.karma.points.unified.v2.event
+
+karma_points_unified_event_topic={{ env }}.karma.points.unified.v2.event
+
+karma.coin.convert.lock.ttl=180
+karma.coin.convert.lock.key.pattern=karmaCoinConvertLock:{userId}
+
 kafka.topics.org.user.bulk.transfer.v2.event.group=user-bulk-transfer-group.v2
 kafka.topics.org.user.bulk.transfer.v2.event={{env}}.org.user.bulk.transfer.v2
 sb.service.user.migrate.v2.path=/private/user/v2/migrate
@@ -676,6 +688,3 @@ sb.service.user.migrate.v2.path=/private/user/v2/migrate
 bulk.user.migration.strict.forwardPath.allowed.roles=MDO_ADMIN
 bulk.user.migration.restriction.roles=STATE_ADMIN,MDO_LEADER
 bulk.user.migration.no.restriction.roles=SPV_ADMIN
-
-certificate-generator-service-host=http://certificate-generator-service:9000
-certificate-generator-download-url=/v1/certs/legacy/generate/
